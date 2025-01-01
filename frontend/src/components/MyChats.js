@@ -5,8 +5,9 @@ import { Avatar, useToast } from "@chakra-ui/react";
 import { Box, Button, Stack, Text } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 import ChatLoading from "./ChatLoading";
-import { getSender } from "../Config/ChatLogics.js";
+import { getSender, getSenderProfilePic } from "../Config/ChatLogics.js";
 import GroupChatModal from "./miscellaneous/GroupChatModal.js";
+import "../App.css";
 
 const MyChats = ({ fetchAgain }) => {
   const [loggedUser, setLoggedUser] = useState("");
@@ -51,20 +52,21 @@ const MyChats = ({ fetchAgain }) => {
         flexDirection="column"
         alignItems="center"
         padding={3}
-        background="white"
         width={{ base: "100%", md: "31%" }}
         borderRadius="lg"
         borderWidth="1px"
+        className="chatNameBackground"
       >
         <Box
           paddingBottom={3}
           px={3}
           fontSize={{ base: "28px", md: "30px" }}
-          fontFamily="Work sans"
+          fontFamily="initial"
           display="flex"
           width="100%"
           justifyContent="space-between"
           alignItems="center"
+          color="lightslategray"
         >
           My Chats
           <GroupChatModal>
@@ -82,7 +84,6 @@ const MyChats = ({ fetchAgain }) => {
           display="flex"
           flexDirection="column"
           padding={3}
-          background="#F8F8F8"
           width="100%"
           height="100%"
           borderRadius="lg"
@@ -100,8 +101,20 @@ const MyChats = ({ fetchAgain }) => {
                   py={2}
                   borderRadius="lg"
                   key={chat._id}
+                  className="userHover"
                 >
                   <Text>
+                    {/* Displaying the image before the chat user name */}
+                    <Avatar
+                      src={getSenderProfilePic(loggedUser, chat.users)}
+                      alt="User Picture"
+                      style={{
+                        width: "30px",
+                        height: "30px",
+                        borderRadius: "50%",
+                        marginRight: "10px",
+                      }}
+                    />
                     {!chat.isGroupChat
                       ? getSender(loggedUser, chat.users)
                       : chat.chatName}

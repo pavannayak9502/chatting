@@ -8,6 +8,19 @@
   background-position: center;
 }
 
+/* My Chats Left side window user complete box(div) ui */
+.chatNameBackground {
+  background-image: url("./Background/chatBackground.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* My Chats Left side window, when logged user hover on single user we are displaying hover color  */
+.userHover:hover {
+  color: white;
+  background: linear-gradient(to left, #833ab4, #fd1d1d, #fcb045);
+}
+
 ::-webkit-scrollbar {
   width: 0px;
 }

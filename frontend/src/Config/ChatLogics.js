@@ -5,6 +5,19 @@ export const getSender = (loggedUser, users) => {
   return users[0]?._id === loggedUser?._id ? users[1].name : users[0].name;
 };
 
+//Displaying the chatUser image before the chat user name.
+export const getSenderProfilePic = (loggedUser, users) => {
+  // Logic for Profile Picture
+  if (users[0]?._id === loggedUser?._id) {
+    return users[0]?._id === loggedUser?._id ? users[1].pic : users[0].pic; // If loggedUser is the first user, return the second user's profile picture.
+  } else {
+    return users[0]?._id === loggedUser?._id ? users[1].name : users[0].name; // Otherwise, return the first user's name for chat user.
+  }
+
+  //1. Logic for Sender Name: In the updated JSX, getSender(loggedUser, chat.users) is responsible for fetching the name of the user.
+  //2. Logic for Profile Picture: We call getSenderProfilePic(loggedUser, chat.users) to get the appropriate profile picture using Avator chakra ui component before the Text(chakra-ui) component.
+};
+
 export const getSenderFull = (loggedUser, users) => {
   //paarmeters : 1.loggedUser, 2.users array for selectedChat user.
 

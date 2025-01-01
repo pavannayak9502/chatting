@@ -156,10 +156,18 @@ const SideDrawer = () => {
         display="flex"
         justifyContent="space-between"
         alignItems="center"
-        background="white"
+        background="green.100"
         width="100%"
         padding="5px 10px 5px 10px"
         borderWidth="5px"
+        sx={{
+          flexWrap: "nowrap", // Prevent wrapping of the elements
+          "@media (max-width: 600px)": {
+            flexDirection: "row", // Make sure items are in a row for mobile
+            alignItems: "center", // Center align on mobile
+            padding: "5px 10px", // Optional: Adjust padding for mobile
+          },
+        }}
       >
         <Tooltip label="Search user to chat" hasArrow placement="bottom-end">
           <Button variant="ghost" onClick={onOpen}>
@@ -171,10 +179,10 @@ const SideDrawer = () => {
         </Tooltip>
 
         <Text
-          fontSize="2xl"
-          fontFamily="Work sans"
+          fontSize={{ base: "15px", md: "2xl" }}
+          fontFamily="cursive"
           style={{
-            color: "lightpink",
+            color: "goldenrod",
             textShadow:
               "0px 0px 0px rgba(35, 207, 193, 0.8), 0px 0px 1px rgba(24, 169, 212, 0.6), 0px 0px 2px rgba(58, 223, 195, 0.4)",
             animation: "glow 1.5s ease-in-out infinite",

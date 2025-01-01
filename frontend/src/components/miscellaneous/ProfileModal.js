@@ -55,7 +55,7 @@ const ProfileModal = ({ user, children }) => {
               alt={user.name}
             />
             <Text
-              fontSize={{ base: "20px", md: "30px" }}
+              fontSize={{ base: "15px", md: "22px" }}
               fontFamily="Work sans"
               marginTop="10px"
             >
